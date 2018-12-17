@@ -1,18 +1,14 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
+import getRouter from './router/router';
+
 import './a.sass';
 import './utils/index';
-
-const Index = () => (
-  <div>Hello React!</div>
-);
-Index.propTypes = {};
 
 if (module.hot) {
   module.hot.accept();
 }
 
 ReactDOM.render(
-  <Index />,
+  getRouter(),
   document.getElementById('root'),
 );

@@ -2,8 +2,8 @@ const path = require('path');
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin'); 
 // 拆分 css 样式
-const ExtractTextWebpackPlugin  = require('extract-text-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const ExtractTextWebpackPlugin  = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   // 多页面配置
@@ -17,34 +17,47 @@ module.exports = {
   },
   module: {
     rules: [
+      // {
+      //   test: /\.(sc|sa|c)ss$/,
+      //   use: ExtractTextWebpackPlugin.extract({
+      //     // css link 方式引入就不需要 style-loader
+      //     fallback: 'style-loader',
+      //     use: [
+      //       {
+      //         loader: 'css-loader',
+      //         options: {
+      //           modules: true,
+      //           importLoaders: 1,
+      //           localIdentName: '[name]_[local]_[hash:base64]',
+      //           sourceMap: true
+      //         }
+      //       },
+      //       {
+      //         loader: 'postcss-loader'
+      //       },
+      //       {
+      //         loader: 'sass-loader'
+      //       }
+      //     ] //右向左解析
+      //   })
+      // },
       {
         test: /\.(sc|sa|c)ss$/,
-        use: ExtractTextWebpackPlugin.extract({
-          // css link 方式引入就不需要 style-loader
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                importLoaders: 1,
-                localIdentName: '[name]_[local]_[hash:base64]',
-                sourceMap: true
-              }
-            },
-            {
-              loader: 'postcss-loader'
-            },
-            {
-              loader: 'sass-loader'
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 1,
+              localIdentName: '[name]_[local]_[hash:base64]',
+              sourceMap: true
             }
-          ] //右向左解析
-        })
+          },
+          'postcss-loader',
+          'sass-loader'
+        ]        
       },
-      // {
-      //   test: /\.less$/,
-      //   use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'] //右向左解析
-      // }
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -109,9 +122,9 @@ module.exports = {
     //   hash: true, // 打包文件追加 hash 串
     // }),
     // 拆分后会把css文件防到dist目录下的css文件
-    new ExtractTextWebpackPlugin('css/style.css'),
-    // new MiniCssExtractPlugin({
-    //   filename: 'css/style.css'
-    // })
+    // new ExtractTextWebpackPlugin('css/style.css'),
+    new MiniCssExtractPlugin({
+      filename: 'css/style.css'
+    })
   ]
 };
