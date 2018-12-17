@@ -9,7 +9,7 @@ module.exports = {
   // 多页面配置
   entry: {
     index: './src/index.js', // 入口文件
-    admin: './src/admin.js'
+    // admin: './src/admin.js'
   },
   output: {
     filename: '[name].js', // 打包后文件名称
@@ -48,9 +48,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
+        use: ['babel-loader', 'eslint-loader']
       },
       {
         test: /\.(jpe?g|png|gif)$/,
@@ -103,13 +101,13 @@ module.exports = {
       hash: true, // 打包文件追加 hash 串
       chunks: ['vendor', 'index', 'utils']  //  引入需要的chunk   
     }),
-    new HtmlWebpackPlugin({
-      // html模板
-      template: './src/admin.html',
-      filename: 'admin.html',
-      chunks: ['admin'],
-      hash: true, // 打包文件追加 hash 串
-    }),
+    // new HtmlWebpackPlugin({
+    //   // html模板
+    //   template: './src/admin.html',
+    //   filename: 'admin.html',
+    //   chunks: ['admin'],
+    //   hash: true, // 打包文件追加 hash 串
+    // }),
     // 拆分后会把css文件防到dist目录下的css文件
     new ExtractTextWebpackPlugin('css/style.css'),
     // new MiniCssExtractPlugin({

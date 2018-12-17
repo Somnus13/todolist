@@ -6,6 +6,14 @@ const common = require('./webpack.common')
 module.exports = merge(common, {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      // test: /\.xxx$/, // may apply this only for some modules
+      options: {
+        eslint: {
+          configFile: './.eslintrc'
+        }
+      }
+    })
   ],
   mode: 'development',
   devServer: {
