@@ -7,18 +7,18 @@ import {
 } from 'react-router-dom';
 
 import Home from '../containers/Home';
-import Page1 from '../containers/Page1';
+import Counter from '../containers/Counter';
 
 const getRouter = () => (
   <Router>
     <div>
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/page1">Page1</Link></li>
+        <li><Link to="/Counter">Page1</Link></li>
       </ul>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/" component={Page1} />
+        <Route path="/" component={Counter} />
       </Switch>
     </div>
   </Router>

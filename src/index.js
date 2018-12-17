@@ -1,5 +1,6 @@
+import React from 'react';
 import ReactDOM from 'react-dom';
-import getRouter from './router/router';
+import App from './app';
 
 import './a.sass';
 import './utils/index';
@@ -9,6 +10,6 @@ if (module.hot) {
 }
 
 ReactDOM.render(
-  getRouter(),
+  <App />,
   document.getElementById('root'),
 );

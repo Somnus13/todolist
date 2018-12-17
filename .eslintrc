@@ -8,8 +8,12 @@
   ],
   "rules": {
     "max-len": [1, 120, 2, {"ignoreComments": true}],
-    "prop-types": [0],
     "no-console": 1,
+    "no-unused-vars": 0,
+    "no-underscore-dangle": 0,
+    "no-debugger": 1,
+    "no-var": 1,
+    "semi": [1, "always"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   },
   "env": {
