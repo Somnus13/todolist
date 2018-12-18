@@ -14,10 +14,35 @@
     "no-debugger": 1,
     "no-var": 1,
     "semi": [1, "always"],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/button-has-type": [
+      "<enabled>",
+      {
+        "button": false,
+        "submit": false,
+        "reset": false
+      }
+    ],
+    "global-require": [1],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "ignore"
+      }
+    ]
   },
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "es6": true
+  },
+  "globals": {
+    "document": true,
+    "localStorage": true,
+    "window": true
   }
 }
