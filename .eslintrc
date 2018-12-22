@@ -15,8 +15,9 @@
     "no-var": 1,
     "semi": [1, "always"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "jsx-a11y/no-noninteractive-element-interactions": [0],
     "react/button-has-type": [
-      "<enabled>",
+      0,
       {
         "button": false,
         "submit": false,
@@ -25,7 +26,7 @@
     ],
     "global-require": [1],
     "comma-dangle": [
-      "error",
+      2,
       {
         "arrays": "always-multiline",
         "objects": "always-multiline",

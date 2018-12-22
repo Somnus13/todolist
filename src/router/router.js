@@ -9,19 +9,16 @@ import {
 import Home from '../containers/Home';
 import Counter from '../containers/Counter';
 import UserInfo from '../containers/UserInfo';
+import TodoList from '../containers/TodoList';
 
 const getRouter = () => (
   <Router>
     <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/Counter">counter</Link></li>
-        <li><Link to="/UserInfo">UserInfo</Link></li>
-      </ul>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/Counter" component={Counter} />
         <Route path="/UserInfo" component={UserInfo} />
+        <Route path="/TodoList" component={TodoList} />
       </Switch>
     </div>
   </Router>
