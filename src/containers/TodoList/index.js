@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addTodo, toggleTodo } from './store/action';
 
+import Todo from '../../components/Todo';
 import './TodoList.scss';
 
 class TodoList extends Component {
@@ -49,17 +50,11 @@ class TodoList extends Component {
           ? (
             <ul className="todo-list">
               {todos.map(item => (
-                <li
+                <Todo
+                  item={item}
                   key={item.id}
-                  onClick={() => toggleTodoFunc(item.id)}
-                  onKeyDown={() => {}}
-                  className={item.completed ? 'line' : 'active'}
-                >
-                  <span className="circle">
-                    <span className="m-circle">{item.id}</span>
-                  </span>
-                  {item.text}
-                </li>
+                  toggleTodoFunc={toggleTodoFunc}
+                />
               ))}
             </ul>
           )

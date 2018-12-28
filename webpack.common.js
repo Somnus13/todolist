@@ -44,8 +44,7 @@ module.exports = {
       {
         test: /\.(sc|sa|c)ss$/,
         use: [
-          // MiniCssExtractPlugin.loader,
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
           'sass-loader',
@@ -105,7 +104,9 @@ module.exports = {
       filename: 'index.html',
       chunks: ['index'],
       hash: true, // 打包文件追加 hash 串
-      chunks: ['vendor', 'index', 'utils'], // 引入需要的chunk
+      options: {
+        chunks: ['vendor', 'index', 'utils'], // 引入需要的chunk
+      },
     }),
     // new HtmlWebpackPlugin({
     //   // html模板
@@ -117,7 +118,8 @@ module.exports = {
     // 拆分后会把css文件防到dist目录下的css文件
     // new ExtractTextWebpackPlugin('css/style.css'),
     new MiniCssExtractPlugin({
-      filename: 'css/style.css',
+      filename: 'styles/[name].css',
+      chunkFilename: 'styles/[id].css',
     }),
   ],
 };

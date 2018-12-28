@@ -1,15 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './app';
+import { render } from 'react-dom';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import getRouter from './router';
+import rootReducer from './reducer';
+import './static/style.scss';
 
-import './a.sass';
-import './utils/index';
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk)),
+);
 
-if (module.hot) {
-  module.hot.accept();
-}
-
-ReactDOM.render(
-  <App />,
+render(
+  <Provider store={store}>
+    {getRouter()}
+  </Provider>,
   document.getElementById('root'),
 );
