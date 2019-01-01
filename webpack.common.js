@@ -104,9 +104,7 @@ module.exports = {
       filename: 'index.html',
       chunks: ['index'],
       hash: true, // 打包文件追加 hash 串
-      options: {
-        chunks: ['vendor', 'index', 'utils'], // 引入需要的chunk
-      },
+      chunks: ['vendor', 'index', 'utils'], // 引入需要的chunk
     }),
     // new HtmlWebpackPlugin({
     //   // html模板
