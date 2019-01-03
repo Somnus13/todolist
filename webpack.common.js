@@ -1,6 +1,6 @@
 const path = require('path');
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin'); 
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 // 拆分 css 样式
 // const ExtractTextWebpackPlugin  = require('extract-text-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
