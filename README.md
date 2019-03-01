@@ -1,3 +1,9 @@
 # todolist
+A project to learning about react and related.
 
-just do it !
+All i used:
+* react & redux & react-router
+* webpack4
+* Babel7
+* Eslint
+* etc.
